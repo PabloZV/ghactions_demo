@@ -5,6 +5,7 @@ on: [push]
 jobs:
   say-hello:
     runs-on: ubuntu-latest
+    environment: ha_secrets_demo
     env:
       MY_NAME: Pablo
       MY_SECRET: ${{secrets.MY_SUPERSECRET}}

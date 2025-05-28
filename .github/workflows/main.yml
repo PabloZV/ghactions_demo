@@ -11,4 +11,4 @@ jobs:
       MY_SECRET: ${{secrets.MY_SUPERSECRET}}
     steps:
     - name: Greet
-      run: echo "Hola $MY_NAME desde GitHub Actions! y mi variable dice ${{vars.MY_VARIABLE}}"
+      run: echo "Hola $MY_NAME desde GitHub Actions! y mi variable dice ${{vars.MY_VARIABLE}} y mi secreto es ${{secrets.MY_SUPERSECRET}} o bien $MY_SECRET"

@@ -1,16 +1,13 @@
-# .github/workflows/main.yml
-name: CI
+name: Demo CI
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push]
 
 jobs:
-  build:
+  say-hello:
     runs-on: ubuntu-latest
+    env:
+      MY_NAME: Pablo
+      MY_SECRET: ${{secrets.MY_SUPERSECRET}}
     steps:
-    - uses: actions/checkout@v3
-    - name: Run a script
-      run: echo "Hola mundo desde GitHub Actions!"
+    - name: Greet
+      run: echo "Hola $MY_NAME desde GitHub Actions! y mi variable dice ${{vars.MY_VARIABLE}}"

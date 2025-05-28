@@ -1,6 +1,13 @@
 name: Demo CI
 
-on: [push]
+on: 
+  push:
+  workflow_dispatch:
+    inputs:
+      nombre:
+        description: 'Tu nombre'
+        required: true
+        default: 'Pablo'
 
 jobs:
   say-hello:
@@ -12,3 +19,6 @@ jobs:
     steps:
     - name: Greet
       run: echo "Hola $MY_NAME desde GitHub Actions! y mi variable dice ${{vars.MY_VARIABLE}} y mi secreto es ${{secrets.MY_SUPERSECRET}} o bien $MY_SECRET"
+    - name: Saluda
+      run: echo "Hola usando workflow_dispatch  ${{ github.event.inputs.nombre }}"
+
